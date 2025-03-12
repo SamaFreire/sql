@@ -10,7 +10,7 @@ datanasc DATE NOT NULL,
 peso DECIMAL(5,2),
 altura FLOAT,
 whatsapp VARCHAR (15) NOT NULL,
-email VARCHAR(100) UNIQUE,
+email VARCHAR(100) UNIQUE NOT NULL,
 rua VARCHAR(100)NOT NULL,
 numero INT(6) NOT NULL,
 complemento VARCHAR(100),
@@ -28,6 +28,31 @@ diasdasemana DATE NOT NULL,
 horario TIME NOT NULL,
 tipo VARCHAR(50) NOT NULL
 );
+
+--INSERINDO DOIS DADOS AO MESMO TEMPO NA TABELA DE TREINO
+INSERT INTO treino(diasdasemana,horario,tipo)
+VALUES("2025-03-12","08:00:00","Musculação"),
+("2025.03.13", "18:00:00","Corrida");
+
+
+--Alterar registros de uma linha
+UPDATE treino 
+SET diasdasemana = "2025-03-14"
+WHERE tipo = "Musculação" AND diasdasemana = "2025-03-12";
+
+
+-- Alterar registro em duas linhas ao mesmo tempo
+UPDATE treino
+SET horario = "15:00:00"
+WHERE horario IN ("08:00:00", "18:00:00");
+
+
+
+--Deletando um dado/registro específico na tabela
+DELETE FROM treino WHERE tipo = "Corrida";
+
+--Deletando TODOS os registros da tabela
+DELETE FROM treino;
 
 --DELETAR UMA TABELA 
 DROP TABLE treino;
