@@ -115,6 +115,32 @@ WHERE altura < 1.70;
 SELECT * FROM cliente
 WHERE altura > 1.78 OR altura < 1.70;
 
+--Selecionando um dado na tabela que contenha a letra "a"
+SELECT * FROM cliente
+WHERE primeironome LIKE '%a%';
+
+
+--Selecionando um dado exato na tabela
+SELECT * FROM cliente
+WHERE primeironome LIKE '%Ana Claudia%';
+
+--Selecionando duas colunas na tabela que contenha a letra "a" e "s"
+SELECT * FROM cliente
+WHERE primeironome LIKE '%a%' AND sobrenome LIKE '%s%';
+
+--Selecionando duas colunas na tabela co dado exato
+SELECT * FROM cliente
+WHERE primeironome LIKE '%Carlos%' AND sobrenome LIKE '%Pereira%';
+
+--Selecionando um dado que contenha um valor com casa decimal
+SELECT * FROM pagamento
+WHERE CAST(valor AS CHAR) LIKE '%150.00%';
+
+--Selecionando pagamentos cujo valor contenha 00
+SELECT * FROM pagamento
+WHERE CAST(valor AS CHAR) LIKE '%00';
+
+
 --Inner Join (Select com chave estrangeira)
 SELECT
     c.cpf,
